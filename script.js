@@ -18,8 +18,10 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 for (let book of myLibrary) {
+    console.log("----- Start of book -----");
     for (let properties in book) {
         console.log(`${properties}: ${book[properties]}`);
     }
+    console.log("----- End of book -----");
 }
 
