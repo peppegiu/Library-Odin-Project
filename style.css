@@ -1,0 +1,39 @@
+.display-books ul {
+    list-style: none;
+    width: 400px;
+    height: 200px;
+    padding: 5px;
+    background-color: #2b72e3; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.display-books ul .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.display-books ul .is-read {
+    background-color:#44c767;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+.display-books ul .is-read:hover {
+    background-color:#5cbf2a;
+}
+
+.display-books ul .is-read:active {
+    position:relative;
+	top:1px;
+}
