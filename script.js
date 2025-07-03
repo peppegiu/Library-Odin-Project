@@ -8,16 +8,19 @@ let classElement;
 addbook.addEventListener("click", () => {
     dialog.showModal();
 });
-submit.addEventListener("click", getData);
-
-function getData(event) {
+submit.addEventListener("click",  function (event) {
     event.preventDefault();
+    getData();
+    addBookToLibrary(input_title, input_author, input_pages, input_read);
+    dialog.close();
+    displayLibrary();
+});
+
+function getData() {
     input_title = document.querySelector(".title").value;
     input_author = document.querySelector(".author").value;
     input_pages = document.querySelector(".pages").value;
-    input_read = document.querySelector(".read").checked;
-    addBookToLibrary(input_title, input_author, input_pages, input_read);
-    dialog.close();
+    input_read = document.querySelector(".read").checked; 
 }
 
 function Book(id, title, author, pages, read) {
@@ -37,7 +40,6 @@ function addBookToLibrary(title, author, pages, read) {
     // take params, create a book then store it in the array
     const bookName = new Book (crypto.randomUUID(), title, author, pages, read);
     myLibrary.push(bookName);
-    displayLibrary();
 }
 
 function invertBoolean(bool) {
