@@ -10,7 +10,13 @@ addbook.addEventListener("click", () => {
 });
 submit.addEventListener("click",  function (event) {
     event.preventDefault();
+    console.log("title:", input_title);
+    console.log("typeof title:", typeof input_title);
+
     getData();
+    console.log("Using input_title:", input_title);
+    console.log("Form field value right now:", document.querySelector(".title").value);
+
     addBookToLibrary(input_title, input_author, input_pages, input_read);
     dialog.close();
     displayBooks.innerHTML = "";
@@ -45,7 +51,7 @@ submit.addEventListener("click",  function (event) {
 });
 
 function getData() {
-    input_title = document.querySelector(".title").value;
+    input_title = document.querySelector("input.title").value;
     input_author = document.querySelector(".author").value;
     input_pages = document.querySelector(".pages").value;
     input_read = document.querySelector(".read").checked; 
@@ -113,7 +119,7 @@ function parseBoolean(string) {
 }
 
 function displayLibrary() {
-    let book_element, property_element;
+    let book_element, property_element, button_element;
     if (!myLibrary.length == 0) {
         for (let book of myLibrary) {
             book_element = document.createElement("ul");
@@ -123,25 +129,27 @@ function displayLibrary() {
                 if(property == 'id' || property == 'toggleStatus') {
                     continue;
                 }             
-
-                property_element = document.createElement("li");
-                property_element.innerText = book[property];
-                
-                
+               
                 if (property == 'read') {
-                    property_element = document.createElement("button");
-                    property_element.classList.add("is-read");
-                    console.log(property_element);
-                    setButton(property_element, book.read);
-                    property_element.id = book.id;
+                    button_element = document.createElement("button");
+                    button_element.classList.add("is-read");
+                    setButton(button_element, book.read);
+                    button_element.id = book.id;
+                    book_element.appendChild(button_element);
+                    continue;
                 }
-                
+                property_element = document.createElement("li");
                 if (property == 'title') {
                     property_element.classList.add("title");
                 }
+
                 if (property == 'pages') {
-                    property_element.innerText = "Number of pages: " + book[property];
+                    property_element.innerText = "Number of pages: " + book[property];                  
                 }
+                else {
+                    property_element.innerText = book[property];
+                }
+                
                 book_element.appendChild(property_element);
             }
             let del = document.createElement("button");
