@@ -1,116 +1,116 @@
 main {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 100vh;
-    align-items: stretch;
-    min-height: 100vh;
-	min-width: 100vw;
-    gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 100vh;
+  align-items: stretch;
+  min-height: 100vh;
+  min-width: 100vw;
+  gap: 50px;
 }
 
 main aside {
-    grid-column: 1 / 2;
-    background-color: #0d74f5;
-    color: white;
-    height: 100%;
-    display: grid;
-    justify-content: center;
-    align-items: start;
-    padding-top: 30px;
-    grid-template-rows: 100px 100px;
+  grid-column: 1 / 2;
+  background-color: #0d74f5;
+  color: white;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  padding-top: 30px;
+  grid-template-rows: 100px 100px;
 }
 
 .display-books {
-    grid-column: 2 / 3;
-    display: grid;
-	grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5px;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 5px;
 }
 
 .display-books ul {
-    list-style: none;
-    width: 320px;
-    height: 240px;
-    padding: 5px;
-    background-color: #2b72e3; 
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-	overflow: auto;
+  list-style: none;
+  width: 320px;
+  height: 240px;
+  padding: 5px;
+  background-color: #2b72e3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: auto;
 }
 
 .display-books ul .title {
-    font-size: 1.5em;
-    font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .display-books ul .is-read {
-    background-color:#44c767;
-	border:1px solid #18ab29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:14px;
-	padding:16px 31px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+  background-color: #44c767;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
 }
 
 .display-books ul .is-read:hover {
-    background-color:#5cbf2a;
+  background-color: #5cbf2a;
 }
 
 .display-books ul .is-read:active {
-    position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .newBook {
-	box-shadow:inset 0px 0px 15px 3px #9fb4f2;
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	background-color:#7892c2;
-	border-radius:17px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 13px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #283966;
+  box-shadow: inset 0px 0px 15px 3px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 17px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 6px 13px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
 }
 .newBook:hover {
-	background:linear-gradient(to bottom, #58c946 5%, #35b86e 100%);
-	background-color:#58c946;
+  background: linear-gradient(to bottom, #58c946 5%, #35b86e 100%);
+  background-color: #58c946;
 }
 .newBook:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .del {
-	box-shadow:inset 0px 17px 0px -24px #e67a73;
-	background-color:#e4685d;
-	border-radius:4px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
+  box-shadow: inset 0px 17px 0px -24px #e67a73;
+  background-color: #e4685d;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 6px 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #b23e35;
 }
 .del:hover {
-	background-color:#eb675e;
+  background-color: #eb675e;
 }
 .del:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
