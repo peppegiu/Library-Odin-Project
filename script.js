@@ -4,7 +4,7 @@ const dialog = document.querySelector("dialog");
 const submit = document.querySelector("#submit");
 const displayBooks = document.querySelector(".display-books");
 let input_title, input_author, input_pages, input_read;
-let classElement;
+let readButtons;
 addbook.addEventListener("click", () => {
     dialog.showModal();
 });
@@ -13,7 +13,19 @@ submit.addEventListener("click",  function (event) {
     getData();
     addBookToLibrary(input_title, input_author, input_pages, input_read);
     dialog.close();
+    displayBooks.innerHTML = "";
     displayLibrary();
+    readButtons = document.querySelectorAll(".is-read");
+    readButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            for (book of myLibrary) {
+                if (book.id === btn.id) {
+                    setButton(btn, book.read);
+                    book.read = !book.read;
+                }
+            }
+        })
+    })
 });
 
 function getData() {
@@ -58,15 +70,12 @@ function setButton(element, bool) {
     if (bool) {
         element.style.backgroundColor = "#5cbf2a";
         element.innerText = "read";
-        element.value = true;
-        console.log(element);
-        console.log(element.value);
     }
     else {
         element.style.backgroundColor = "#eb4034";
         element.innerText = "not read";
-        element.value = false;
     }
+    
 }
 
 function parseBoolean(string) {
@@ -92,6 +101,7 @@ function displayLibrary() {
     if (!myLibrary.length == 0) {
         for (let book of myLibrary) {
             book_element = document.createElement("ul");
+            book_element.id = book.id;
             displayBooks.appendChild(book_element);
             for (let property in book) {
                 if(property == 'id' || property == 'toggleStatus') {
@@ -107,10 +117,7 @@ function displayLibrary() {
                     property_element.classList.add("is-read");
                     console.log(property_element);
                     setButton(property_element, book.read);
-                    property_element.addEventListener('click', function () {
-                        book.toggleStatus();
-                        setButton(property_element, book.read);
-                    })
+                    property_element.id = book.id;
                 }
                 
                 if (property == 'title') {
@@ -125,6 +132,9 @@ function displayLibrary() {
     } else {
         document.createElement("p").innerText = "Theres nothing on here";
     }
+    
+    
+    
 }
 
 
