@@ -68,25 +68,12 @@ function Book(id, title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.toggleStatus = function () {
-  this.read = invertBoolean(this.read);
-};
-
 function addBookToLibrary(title, author, pages, read) {
   // take params, create a book then store it in the array
   const bookName = new Book(crypto.randomUUID(), title, author, pages, read);
   myLibrary.push(bookName);
 }
 
-function invertBoolean(bool) {
-  if (!bool) {
-    bool = true;
-    return bool;
-  } else {
-    bool = false;
-    return bool;
-  }
-}
 
 function setButton(element, bool) {
   console.log("dispatched");
@@ -99,24 +86,6 @@ function setButton(element, bool) {
   }
 }
 
-function parseBoolean(string) {
-  switch (String(string).toLowerCase()) {
-    case "true":
-    case "1":
-    case "yes":
-    case "y":
-      return true;
-    case "false":
-    case "0":
-    case "no":
-    case "n":
-      return false;
-    default:
-      //you could throw an error, but 'undefined' seems a more logical reply
-      return undefined;
-  }
-}
-
 function displayLibrary() {
   let book_element, property_element, button_element;
   if (!myLibrary.length == 0) {
@@ -125,7 +94,7 @@ function displayLibrary() {
       book_element.dataset.id = book.id;
       displayBooks.appendChild(book_element);
       for (let property in book) {
-        if (property == "id" || property == "toggleStatus") {
+        if (property == "id") {
           continue;
         }
 
