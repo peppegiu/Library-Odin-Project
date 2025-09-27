@@ -16,26 +16,27 @@
         <h1>Library</h1>
         <button class="newBook">New Book</button>
       </aside>
+      <div id="library" class="library">
+        <ul id="book-list"></ul>
+    </div>
 
-      <div class="display-books"></div>
-
-      <dialog>
+      <dialog id="book-form">
         <form action="">
           <p>
             <label for="title">Title:</label>
-            <input type="text" name="title" class="title" />
+            <input type="text" name="title" class="title" id="title" />
           </p>
           <p>
             <label for="author">Author:</label>
-            <input type="text" name="author" class="author" />
+            <input type="text" name="author" class="author" id="author" />
           </p>
           <p>
             <label for="">Number of pages</label>
-            <input type="number" name="pages" min="3" class="pages" />
+            <input type="number" name="pages" min="3" class="pages" id="pages" />
           </p>
           <p>
             <label for="read">Did you read it?</label>
-            <input type="checkbox" name="read" class="read" />
+            <input type="checkbox" name="read" class="read" id="readStatus" />
           </p>
           <button id="submit">submit</button>
         </form>
