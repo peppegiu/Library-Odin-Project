@@ -80,6 +80,7 @@ form.addEventListener("submit", (event) => {
   const readStatus = document.getElementById("readStatus").value;
   Book.addBookToLibrary(myLibrary, title, author, pages, readStatus);
   Book.displayLibrary(myLibrary);
+  form.close();
 });
 
 Book.addBookToLibrary(myLibrary, "LOTR", "JRR-Tolkien", 800, true);
