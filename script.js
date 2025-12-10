@@ -55,6 +55,7 @@ class Book {
     const bookToRemove = document.getElementById(bookId);
     const bookList = document.getElementById("book-list");
     bookList.removeChild(bookToRemove);
+    myLibrary.splice(myLibrary.indexOf(myLibrary.find((id) => id == bookId)), 1);
   }
 
   static changeReadStatus(buttonId) {
