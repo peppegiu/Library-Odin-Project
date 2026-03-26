@@ -3,13 +3,15 @@ const addbook = document.querySelector(".newBook");
 const displayBooks = document.querySelector(".display-books");
 const form = document.getElementById("book-form");
 
-
 function getData() {
-  input_title = document.querySelector("input.title").value;
-  input_author = document.querySelector(".author").value;
-  input_pages = document.querySelector(".pages").value;
-  input_read = document.querySelector(".read").checked;
+  const input_title = document.querySelector("input.title").value;
+  const input_author = document.querySelector(".author").value;
+  const input_pages = document.querySelector(".pages").value;
+  const input_read = document.querySelector(".read").checked;
+  return { input_title, input_author, input_pages, input_read };
 }
+
+const formInput = getData();
 
 class Book {
   constructor(id, title, author, pages, read) {
@@ -46,7 +48,7 @@ class Book {
       li.appendChild(button2);
       bookList.appendChild(li);
       button2.addEventListener("click", () =>
-        this.changeReadStatus(button2.className)
+        this.changeReadStatus(button2.className),
       );
     });
   }
@@ -55,7 +57,10 @@ class Book {
     const bookToRemove = document.getElementById(bookId);
     const bookList = document.getElementById("book-list");
     bookList.removeChild(bookToRemove);
-    myLibrary.splice(myLibrary.indexOf(myLibrary.find((id) => id == bookId)), 1);
+    myLibrary.splice(
+      myLibrary.indexOf(myLibrary.find((id) => id == bookId)),
+      1,
+    );
   }
 
   static changeReadStatus(buttonId) {
@@ -85,3 +90,19 @@ form.addEventListener("submit", (event) => {
 
 Book.addBookToLibrary(myLibrary, "LOTR", "JRR-Tolkien", 800, true);
 Book.displayLibrary(myLibrary);
+
+form.addEventListener("input", (event) => {
+  if (formInput.input_author.validity.valueMissing) {
+    formInput.input_author.setCustomValidity("The author name must be filled!");
+  }
+});
+
+formInput.input_pages.addEventListener("input", () => {
+  if (formInput.input_pages.value < formInput.input_pages.min) {
+    formInput.input_pages.setCustomValidity(
+      "The book must contain 10 pages or higher",
+    );
+  } else {
+    formInput.input_pages.setCustomValidity("");
+  }
+});
